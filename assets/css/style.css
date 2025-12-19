@@ -496,7 +496,8 @@ a {
 /* Strip */
 .strip {
   padding: 0;
-  background: var(--bg);
+  background: url('../img/bg-horse.JPG');
+  background-repeat: no-repeat;
 }
 .strip__media {
   width: min(var(--container), calc(100% - 48px));
@@ -1036,6 +1037,123 @@ a {
 }
 
 
+/* ===== Photo Grid Section ===== */
+.photoGrid {
+  position: relative;
+  padding: 120px 0;
+  background: url("../img/bg-collage.jpg") center / cover no-repeat;
+  overflow: hidden;
+}
+
+.photoGrid__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+}
+
+.photoGrid__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* grid */
+.photoGrid__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 18px;
+}
+
+/* картинки */
+.photoGrid__grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.photoGrid__grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* асимметрия */
+.photoGrid__grid img:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.photoGrid__grid img:nth-child(4) {
+  grid-row: span 2;
+}
+
+
+
+/* ===== Section with Video Background ===== */
+.section--video {
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* фон */
+.sectionVideo__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.sectionVideo__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) saturate(1.05);
+}
+
+/* затемнение */
+.sectionVideo__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.65) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+/* контент поверх видео */
+.section--video .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* читаемость текста */
+.section--video .h2,
+.section--video .p {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.section--video .muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* слегка «стеклянная» подложка под статью */
+.section--video .article {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  border-radius: 26px;
+  padding: 60px 56px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+}
+
+
+
+
 
 /* Responsive */
 @media (max-width: 980px) {
@@ -1237,3 +1355,98 @@ a {
     );
   }
 }
+
+
+@media (max-width: 1024px) {
+  .photoGrid__grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .photoGrid {
+    padding: 80px 0;
+  }
+
+  .photoGrid__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+
+  .photoGrid__grid img:nth-child(1),
+  .photoGrid__grid img:nth-child(4) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .photoGrid__grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+}
+
+
+/* ===== Photo Modal ===== */
+.photoModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.photoModal.is-open {
+  display: block;
+}
+
+.photoModal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.photoModal__img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 22px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.75);
+  animation: zoomIn 0.25s ease;
+}
+
+.section--darks {
+  background: url('../img/sport-bg.JPG');
+  background-size: cover;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .section--video .article {
+    padding: 36px 24px;
+    border-radius: 20px;
+  }
+
+  .sectionVideo__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+  }
+}
+

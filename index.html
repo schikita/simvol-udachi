@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />  
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon">
 
@@ -132,7 +132,7 @@
                         а доверие, выработанное годами тренировок.
                     </p>
 
-                    
+
                 </div>
             </div>
         </section>
@@ -186,6 +186,28 @@
             </div>
         </section>
 
+        <section class="photoGrid">
+            <div class="photoGrid__overlay"></div>
+
+            <div class="photoGrid__content container">
+                <div class="photoGrid__grid" data-reveal>
+                    <img src="./assets/img/galery/01.JPG" alt="" />
+                    <img src="./assets/img/galery/02.JPG" alt="" />
+                    <img src="./assets/img/galery/03.JPG" alt="" />
+                    <img src="./assets/img/galery/05.JPG" alt="" />
+                    <img src="./assets/img/galery/04.JPG" alt="" />
+                    <img src="./assets/img/galery/06.JPG" alt="" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Модалка -->
+        <div class="photoModal" id="photoModal">
+            <div class="photoModal__backdrop"></div>
+            <img class="photoModal__img" src="" alt="">
+        </div>
+
+
         <!-- BIG HEADING + STATS (like sample) -->
         <section class="section section--light">
             <div class="container grid grid--stats">
@@ -222,15 +244,19 @@
         <!-- FULL-WIDTH VIDEO STRIP -->
         <section id="videoBlock" class="strip">
             <div class="strip__media">
-                <!-- Замените на свое видео -->
-                <video class="strip__video" src=""
-                    poster="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=2200&auto=format&fit=crop"
-                    muted loop playsinline autoplay></video>
+                <img src="./assets/img/jokey-1.JPG" alt="">
             </div>
         </section>
 
         <!-- STORY (article-like) -->
-        <section id="story" class="section section--light">
+        <!-- STORY (article-like) -->
+        <section id="story" class="section section--video">
+            <div class="sectionVideo__bg">
+                <video class="sectionVideo__video" src="./assets/videos/bg-vid.mp4" autoplay muted loop playsinline
+                    preload="auto"></video>
+                <div class="sectionVideo__overlay"></div>
+            </div>
+
             <div class="container article">
                 <div class="article__head" data-reveal>
                     <h2 class="h2">Чувство лошади</h2>
@@ -241,38 +267,26 @@
 
                 <div class="article__body">
                     <p class="p" data-reveal>
-                        Молодая тренер Анастасия Янковская одевает сбрую на Ватикана. Тот зря времени не теряет — тычет
-                        мордой в ее
-                        карманы в поисках кусочка сахара.
+                        Молодая тренер Анастасия Янковская одевает сбрую на Ватикана. Тот зря времени
+                        не теряет — тычет мордой в ее карманы в поисках кусочка сахара.
                     </p>
 
                     <p class="p" data-reveal>
-                        — Благодаря Ватикану я стала мастером спорта, он многим спортсменам принес удачу. Мою лошадь,
-                        которую я
-                        тренирую, зовут Брэйв Хард, в переводе — Храброе Сердце. Ему восемь лет, для лошади это старт
-                        спортивной
-                        карьеры.
+                        — Благодаря Ватикану я стала мастером спорта, он многим спортсменам принес
+                        удачу. Мою лошадь, которую я тренирую, зовут Брэйв Хард.
                     </p>
 
                     <p class="p" data-reveal>
-                        Анастасия рассказывает: подготовка спортивной лошади — дело далеко не одного года. Нужно
-                        приучить лошадь к
-                        голосовым командам, выработать правильные движения. Очень важно, чтобы она доверяла человеку.
-                    </p>
-
-                    <p class="p" data-reveal>
-                        — Характер у Брэйв Харда полностью отвечает его кличке. А еще он настоящий джентльмен: всегда
-                        готов
-                        выручить, если я ошибусь. Когда выезжаем на «боевое поле», то на разминке он еще может
-                        покапризничать, но
-                        как только прозвенел колокольчик — Брэйв собирается, как настоящий спортсмен.
+                        Подготовка спортивной лошади — дело далеко не одного года. Очень важно,
+                        чтобы она доверяла человеку.
                     </p>
                 </div>
             </div>
         </section>
 
+
         <!-- DARK SERVICES (like sample black block + cards) -->
-        <section id="services" class="section section--dark">
+        <section id="services" class="section section--darks">
             <div class="container">
                 <div class="darkHead grid grid--darkHead">
                     <div data-reveal>
@@ -293,43 +307,26 @@
                 <div class="cards" data-reveal>
                     <article class="card">
                         <div class="card__img">
-                            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1600&auto=format&fit=crop"
+                            <img src="./assets/img/sec-1.JPG"
                                 alt="Раздел" loading="lazy" />
-                        </div>
-                        <div class="card__body">
-                            <h3 class="card__title">Год Лошади</h3>
-                            <p class="card__text muted">
-                                Символы года, энергия, привычки, «что усилить» и «что не делать».
-                            </p>
                         </div>
                     </article>
 
                     <article class="card">
                         <div class="card__img">
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1600&auto=format&fit=crop"
+                            <img src="./assets/img/sec-2.JPG"
                                 alt="Раздел" loading="lazy" />
-                        </div>
-                        <div class="card__body">
-                            <h3 class="card__title">Доверие и техника</h3>
-                            <p class="card__text muted">
-                                Голосовые команды, ритм, корректировка движений, стабильность в зачете.
-                            </p>
                         </div>
                     </article>
 
                     <article class="card">
                         <div class="card__img">
-                            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1600&auto=format&fit=crop"
+                            <img src="./assets/img/sec-3.JPG"
                                 alt="Раздел" loading="lazy" />
-                        </div>
-                        <div class="card__body">
-                            <h3 class="card__title">Победа 50/50</h3>
-                            <p class="card__text muted">
-                                Слаженность действий, психологическая устойчивость и «чувство лошади».
-                            </p>
                         </div>
                     </article>
                 </div>
+
             </div>
         </section>
 

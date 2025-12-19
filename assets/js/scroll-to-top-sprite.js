@@ -57,3 +57,20 @@ if (document.readyState === 'loading') {
 } else {
   new ScrollToTopButton();
 }
+
+const modal = document.getElementById("photoModal");
+const modalImg = modal.querySelector(".photoModal__img");
+
+document.querySelectorAll(".photoGrid__grid img").forEach((img) => {
+  img.addEventListener("click", () => {
+    modalImg.src = img.src;
+    modal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+modal.addEventListener("click", () => {
+  modal.classList.remove("is-open");
+  modalImg.src = "";
+  document.body.style.overflow = "";
+});
