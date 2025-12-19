@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />  
+
+    <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <link rel="stylesheet" href="./assets/css/scroll-to-top-sprite-styles.css">
+</head>
+
+<body>
+    <!-- Hoofprints overlay -->
+    <div class="hoof-layer" aria-hidden="true" data-hoof-layer></div>
+
+    <!-- Top bar -->
+    <header class="topbar" data-header>
+        <div class="topbar__inner">
+            <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
+                <span class="logo-text">SB.BY</span>
+            </a>
+
+            <nav class="nav" aria-label="Навигация">
+                <a class="nav__link" href="#about">О проекте</a>
+                <a class="nav__link" href="#story">История</a>
+                <a class="nav__link" href="#services">Разделы</a>
+                <a class="nav__link" href="#events">События</a>
+                <a class="nav__link" href="#posts">Материалы</a>
+            </nav>
+
+            <div class="topbar__actions">
+                <button class="burger" type="button" aria-label="Меню" data-burger>
+                    <span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <aside class="sheet" hidden data-sheet>
+        <div class="sheet__panel">
+            <div class="sheet__head">
+                <div class="sheet__title">Меню</div>
+                <button class="sheet__close" type="button" aria-label="Закрыть" data-close>
+                    ✕
+                </button>
+            </div>
+            <div class="sheet__links">
+                <a href="#about" data-sheet-link>О проекте</a>
+                <a href="#story" data-sheet-link>История</a>
+                <a href="#services" data-sheet-link>Разделы</a>
+                <a href="#events" data-sheet-link>События</a>
+                <a href="#posts" data-sheet-link>Материалы</a>
+                <a href="#contact" data-sheet-link>Контакты</a>
+            </div>
+        </div>
+    </aside>
+
+    <main id="top">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero__bg"></div>
+
+            <div class="hero__content container">
+                <div class="hero__center">
+
+                    <div class="live">
+                        <img class="lr" src="./assets/img/splash.png" alt="Живой репортаж">
+                    </div>
+
+                    <h1 class="hero__title">Символ удачи</h1>
+
+                    <p class="hero__subtitle">
+                        Чего ждать от Года лошади рассказали те, кто делит победу со скакунами 50/50
+                    </p>
+
+                    <div class="hero__cta">
+                        <a class="btn btn--accent" href="#about">ЧИТАТЬ РЕПОРТАЖ</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="photoText">
+            <div class="photoText__overlay"></div>
+
+            <div class="photoText__content container" data-reveal>
+                <div class="photoText__box">
+                    <h2 class="photoText__title">
+                        Чувство лошади
+                    </h2>
+
+                    <p class="photoText__text">
+                        В процессе скачек наездник и лошадь должны стать единым целым,
+                        ведь победа зависит от слаженности действий обоих.
+                        Поэтому одно из важных качеств хорошего спортсмена —
+                        чувство лошади.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="videoSection">
+            <div class="videoSection__bg">
+                <video class="videoSection__video" src="./assets/videos/bg-vid-1.mp4" autoplay muted loop playsinline
+                    preload="auto"></video>
+
+                <div class="videoSection__overlay"></div>
+            </div>
+
+            <div class="videoSection__content container">
+                <div class="videoSection__text" data-reveal>
+                    <h2 class="videoSection__title">
+                        Когда человек и лошадь — одно целое
+                    </h2>
+
+                    <p class="videoSection__subtitle">
+                        В решающий момент важны не скорость и сила,
+                        а доверие, выработанное годами тренировок.
+                    </p>
+
+                    
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ABOUT (image left, text right like template) -->
+        <section id="about" class="section section--lights">
+            <div class="container grid grid--2">
+                <div class="mediaCard" data-reveal>
+                    <video class="mediaCard__video" src="./assets/videos/first-video.mp4"
+                        poster="./assets/img/first-poster.jpg" controls preload="metadata" playsinline>
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+
+
+                <div class="content" data-reveal>
+                    <h2 class="h2">Чего ждать от Года Лошади</h2>
+                    <p class="p muted">
+                        2026-й год пройдет под знаком лошади. Астрологи прогнозируют покорение новых карьерных высот и
+                        энергетический
+                        прорыв. В восточном календаре наступает время Красной Огненной Лошади — символа страсти, свободы
+                        и
+                        неукротимого движения вперёд.
+                    </p>
+                    <p class="p muted">
+                        2026-й год пройдет под знаком лошади. Астрологи прогнозируют покорение новых карьерных высот и
+                        энергетический
+                        прорыв. В восточном календаре наступает время Красной Огненной Лошади — символа страсти, свободы
+                        и
+                        неукротимого движения вперёд.
+                    </p>
+                    <p class="p muted">
+                        2026-й год пройдет под знаком лошади. Астрологи прогнозируют покорение новых карьерных высот и
+                        энергетический
+                        прорыв. В восточном календаре наступает время Красной Огненной Лошади — символа страсти, свободы
+                        и
+                        неукротимого движения вперёд.
+                    </p>
+                    <p class="p muted">
+                        2026-й год пройдет под знаком лошади. Астрологи прогнозируют покорение новых карьерных высот и
+                        энергетический
+                        прорыв. В восточном календаре наступает время Красной Огненной Лошади — символа страсти, свободы
+                        и
+                        неукротимого движения вперёд.
+                    </p>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BIG HEADING + STATS (like sample) -->
+        <section class="section section--light">
+            <div class="container grid grid--stats">
+                <div class="content" data-reveal>
+                    <h2 class="h2 h2--xl">
+                        Чувство лошади — это<br />
+                        дисциплина, доверие<br />
+                        и синхронность 50/50
+                    </h2>
+
+                    <p class="p muted">
+                        Подготовка спортивной лошади — дело далеко не одного года. Нужно приучить к голосовым командам,
+                        выработать
+                        правильные движения и главное — построить доверие.
+                    </p>
+                </div>
+
+                <div class="stats" data-reveal>
+                    <div class="stat">
+                        <div class="stat__num" data-count="180">0</div>
+                        <div class="stat__title">Тренировок в цикле</div>
+                        <div class="stat__desc muted">Режим, повтор, корректировка, восстановление</div>
+                    </div>
+
+                    <div class="stat">
+                        <div class="stat__num" data-count="100">0</div>
+                        <div class="stat__title">Процентов доверия</div>
+                        <div class="stat__desc muted">Без доверия не бывает стабильной техники</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL-WIDTH VIDEO STRIP -->
+        <section id="videoBlock" class="strip">
+            <div class="strip__media">
+                <!-- Замените на свое видео -->
+                <video class="strip__video" src=""
+                    poster="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=2200&auto=format&fit=crop"
+                    muted loop playsinline autoplay></video>
+            </div>
+        </section>
+
+        <!-- STORY (article-like) -->
+        <section id="story" class="section section--light">
+            <div class="container article">
+                <div class="article__head" data-reveal>
+                    <h2 class="h2">Чувство лошади</h2>
+                    <p class="p muted">
+                        Из лошади нужно вырастить спортсмена так же, как из начинающего наездника.
+                    </p>
+                </div>
+
+                <div class="article__body">
+                    <p class="p" data-reveal>
+                        Молодая тренер Анастасия Янковская одевает сбрую на Ватикана. Тот зря времени не теряет — тычет
+                        мордой в ее
+                        карманы в поисках кусочка сахара.
+                    </p>
+
+                    <p class="p" data-reveal>
+                        — Благодаря Ватикану я стала мастером спорта, он многим спортсменам принес удачу. Мою лошадь,
+                        которую я
+                        тренирую, зовут Брэйв Хард, в переводе — Храброе Сердце. Ему восемь лет, для лошади это старт
+                        спортивной
+                        карьеры.
+                    </p>
+
+                    <p class="p" data-reveal>
+                        Анастасия рассказывает: подготовка спортивной лошади — дело далеко не одного года. Нужно
+                        приучить лошадь к
+                        голосовым командам, выработать правильные движения. Очень важно, чтобы она доверяла человеку.
+                    </p>
+
+                    <p class="p" data-reveal>
+                        — Характер у Брэйв Харда полностью отвечает его кличке. А еще он настоящий джентльмен: всегда
+                        готов
+                        выручить, если я ошибусь. Когда выезжаем на «боевое поле», то на разминке он еще может
+                        покапризничать, но
+                        как только прозвенел колокольчик — Брэйв собирается, как настоящий спортсмен.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DARK SERVICES (like sample black block + cards) -->
+        <section id="services" class="section section--dark">
+            <div class="container">
+                <div class="darkHead grid grid--darkHead">
+                    <div data-reveal>
+                        <h2 class="h2 h2--onDark">Разделы спецпроекта</h2>
+                    </div>
+                    <div data-reveal>
+                        <p class="p p--onDark mutedOnDark">
+                            Лонгрид строится как последовательность кадров: видео, крупные фото, цитаты, «воздух» и
+                            короткие смысловые
+                            блоки. Акцент — на ощущениях и ритме.
+                        </p>
+                        <p class="p p--onDark mutedOnDark">
+                            Ниже — три карточки-«раздела» (вы легко замените на свои).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cards" data-reveal>
+                    <article class="card">
+                        <div class="card__img">
+                            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1600&auto=format&fit=crop"
+                                alt="Раздел" loading="lazy" />
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Год Лошади</h3>
+                            <p class="card__text muted">
+                                Символы года, энергия, привычки, «что усилить» и «что не делать».
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__img">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1600&auto=format&fit=crop"
+                                alt="Раздел" loading="lazy" />
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Доверие и техника</h3>
+                            <p class="card__text muted">
+                                Голосовые команды, ритм, корректировка движений, стабильность в зачете.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__img">
+                            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1600&auto=format&fit=crop"
+                                alt="Раздел" loading="lazy" />
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Победа 50/50</h3>
+                            <p class="card__text muted">
+                                Слаженность действий, психологическая устойчивость и «чувство лошади».
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTS (image left, text right, slider controls) -->
+        <section id="events" class="section section--light">
+            <div class="container events">
+                <div class="events__top" data-reveal>
+                    <h2 class="h2">События и выезды</h2>
+                    <a class="btn btn--black" href="#all">Смотреть все</a>
+                </div>
+
+                <div class="events__grid">
+                    <div class="events__media" data-reveal>
+                        <div class="events__frame">
+                            <div class="events__track" data-slider-track>
+                                <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?q=80&w=1800&auto=format&fit=crop"
+                                    alt="Слайд 1" loading="lazy" />
+                                <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1800&auto=format&fit=crop"
+                                    alt="Слайд 2" loading="lazy" />
+                                <img src="https://images.unsplash.com/photo-1553284966-19b8815c7817?q=80&w=1800&auto=format&fit=crop"
+                                    alt="Слайд 3" loading="lazy" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="events__content" data-reveal>
+                        <div class="events__title" data-slider-title>Полуфинальный выезд</div>
+                        <p class="p muted" data-slider-desc>
+                            «Боёвое поле» — место, где лошадь и наездник перестают быть «двумя», становясь одной
+                            системой.
+                        </p>
+
+                        <div class="events__meta">
+                            <div class="metaItem">
+                                <div class="metaItem__label muted">Локация</div>
+                                <div class="metaItem__value">Могилёв, Центр олимп. резерва</div>
+                            </div>
+                            <div class="metaItem">
+                                <div class="metaItem__label muted">Дата</div>
+                                <div class="metaItem__value">Сезон 2026</div>
+                            </div>
+                        </div>
+
+                        <div class="events__controls">
+                            <button class="arrow" type="button" data-prev aria-label="Назад">←</button>
+                            <button class="arrow" type="button" data-next aria-label="Вперед">→</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL (dark) -->
+        <section class="section section--dark section--quote">
+            <div class="container">
+                <div class="bigQuote" data-reveal>
+                    <p class="bigQuote__text">
+                        «В решающий момент исчезают эмоции и “капризы”. Остается работа — ритм, доверие, и четкий
+                        сигнал. Именно
+                        тогда становится видно, кто действительно спортсмен».
+                    </p>
+
+                    <div class="bigQuote__line"></div>
+
+                    <div class="bigQuote__author">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="bigQuote__name">Анастасия Янковская</div>
+                            <div class="bigQuote__role mutedOnDark">Тренер</div>
+                        </div>
+
+                        <div class="dots" aria-hidden="true">
+                            <span></span><span></span><span class="is-active"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POSTS -->
+        <section id="posts" class="section section--light">
+            <div class="container">
+                <div class="postsTop" data-reveal>
+                    <h2 class="h2">Материалы по теме</h2>
+                    <a class="btn btn--black" href="#allposts">Смотреть все</a>
+                </div>
+
+                <div class="postsGrid">
+                    <article class="post post--big" data-reveal>
+                        <div class="post__img">
+                            <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?q=80&w=1800&auto=format&fit=crop"
+                                alt="Пост" loading="lazy" />
+                        </div>
+                        <div class="post__body">
+                            <h3 class="post__title">Как формируется “чувство лошади”</h3>
+                            <p class="post__desc muted">
+                                Упражнения на доверие, работа с ритмом и спокойствие как основа техники.
+                            </p>
+                            <a class="post__link" href="#read">Read More</a>
+                        </div>
+                    </article>
+
+                    <div class="postList">
+                        <article class="post post--row" data-reveal>
+                            <div class="post__thumb">
+                                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop"
+                                    alt="Пост" loading="lazy" />
+                            </div>
+                            <div class="post__body">
+                                <h3 class="post__title">Упражнения на доверие</h3>
+                                <p class="post__desc muted">Коммуникация голосом и реакция на микро-сигналы.</p>
+                                <a class="post__link" href="#read2">Read More</a>
+                            </div>
+                        </article>
+
+                        <article class="post post--row" data-reveal>
+                            <div class="post__thumb">
+                                <img src="https://images.unsplash.com/photo-1553284966-19b8815c7817?q=80&w=1200&auto=format&fit=crop"
+                                    alt="Пост" loading="lazy" />
+                            </div>
+                            <div class="post__body">
+                                <h3 class="post__title">Стабильность на старте</h3>
+                                <p class="post__desc muted">Почему “в зачете” лошадь меняется — и как это учитывать.</p>
+                                <a class="post__link" href="#read3">Read More</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section section--light">
+            <div class="container contact">
+                <div class="contact__left" data-reveal>
+                    <h2 class="h2">Связаться</h2>
+                    <p class="p muted">
+                        Здесь подключаете свой обработчик: email, Telegram-бот, CRM. Блок оставлен “как в шаблоне” —
+                        чисто и
+                        редакционно.
+                    </p>
+                    <a class="contact__mail" href="mailto:hello@example.com">hello@example.com</a>
+                </div>
+
+                <form class="contact__form" data-reveal data-form>
+                    <label class="field">
+                        <span>Имя</span>
+                        <input name="name" type="text" placeholder="Ваше имя" required />
+                    </label>
+                    <label class="field">
+                        <span>Email</span>
+                        <input name="email" type="email" placeholder="name@domain.com" required />
+                    </label>
+                    <label class="field">
+                        <span>Сообщение</span>
+                        <textarea name="message" rows="5" placeholder="Коротко о задаче"></textarea>
+                    </label>
+                    <button class="btn btn--black btn--wide" type="submit">Отправить</button>
+                    <div class="hint muted">Демо: отправка не подключена.</div>
+                </form>
+            </div>
+
+            <footer class="footer">
+                <div class="container footer__inner">
+                    <div class="muted">© 2026</div>
+                    <a class="muted" href="#top">Наверх</a>
+                </div>
+            </footer>
+        </section>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/scroll-to-top-sprite.js"></script>
+</body>
+
+</html>
