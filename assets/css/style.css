@@ -109,7 +109,13 @@ a {
   color: var(--fgDark);
 }
 .section--quote {
+  display: flex;
+  flex-direction: column;
   padding: 120px 0;
+}
+
+.section--quote > .container {
+  margin-top: auto;           /* ← ключевая строка */
 }
 
 .h2 {
@@ -628,7 +634,12 @@ a {
 .bigQuote {
   max-width: 980px;
   margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* ← прижимает контент вниз */
 }
+
 .bigQuote__text {
   margin: 0;
   font-size: 20px;
@@ -1703,9 +1714,30 @@ audio {
 
  /* ===== BIG QUOTE ===== */
 
- .section--darkd {
-  background: url();
- }
+.section--darkd {
+  position: relative;
+  height: 80vh;
+
+  background: url("../img/ceo.JPG") no-repeat top center / cover;
+  overflow: hidden;
+}
+
+/* Чёрный градиент снизу */
+.section--darkd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.55) 35%,
+    rgba(0, 0, 0, 0.25) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  z-index: 0;
+}
 
     .bigQuote {
       max-width: 980px;
@@ -1714,7 +1746,7 @@ audio {
     }
 
     .bigQuote__slides {
-      min-height: 180px;
+      min-height: 50px;
     }
 
     .bigQuote__slide {
@@ -1735,8 +1767,7 @@ audio {
 
     .bigQuote__line {
       height: 1px;
-      background: rgba(165, 165, 165, 0.15);
-      margin: 28px 0;
+      background: rgba(165, 165, 165, 0.15);      
     }
 
     .bigQuote__author {
@@ -1761,11 +1792,13 @@ audio {
 
     .bigQuote__name {
       font-weight: 600;
+      color: #ccc;
     }
 
     .bigQuote__role {
       font-size: 14px;
       opacity: 0.7;
+      color: #ccc;
     }
 
     /* ===== DOTS ===== */
