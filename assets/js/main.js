@@ -100,7 +100,8 @@ let idx = 0;
 
 function applySlide() {
   if (!track) return;
-  track.style.transform = `translateX(-${idx * 100}%)`;
+  const offset = idx * 100;
+  track.style.transform = `translateX(-${offset}%)`;
   if (titleEl) titleEl.textContent = titles[idx] || titles[0];
   if (descEl) descEl.textContent = descs[idx] || descs[0];
 }
@@ -141,9 +142,9 @@ form?.addEventListener("submit", (e) => {
   const layer = $("[data-hoof-layer]");
   if (!layer) return;
 
-  let last = null; // {x,y}
-  let side = 1; // left/right alternating
-  const step = 26; // spacing
+  let last = null;
+  let side = 1;
+  const step = 26;
   const maxOnScreen = 70;
 
   let pending = null;
@@ -158,10 +159,8 @@ form?.addEventListener("submit", (e) => {
 
     layer.appendChild(el);
 
-    // cleanup after animation
     el.addEventListener("animationend", () => el.remove(), { once: true });
 
-    // cap elements
     while (layer.childElementCount > maxOnScreen) {
       layer.firstElementChild?.remove();
     }
@@ -189,28 +188,23 @@ form?.addEventListener("submit", (e) => {
     const dist = Math.hypot(dx, dy);
     if (dist < step) return;
 
-    // normalized direction
     const nx = dx / dist;
     const ny = dy / dist;
 
-    // perpendicular for left/right offset
     const px = -ny;
     const py = nx;
 
-    // place multiple hoofprints along the path
     const count = Math.floor(dist / step);
     for (let i = 1; i <= count; i++) {
       const t = (i * step) / dist;
       let x = last.x + dx * t;
       let y = last.y + dy * t;
 
-      // alternate left/right, small offset
       const offset = 7 * side;
       x += px * offset;
       y += py * offset;
       side *= -1;
 
-      // rotation follows movement + a bit of randomness
       const baseRot = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
       const rot = baseRot + (Math.random() * 10 - 5);
 
@@ -222,13 +216,10 @@ form?.addEventListener("submit", (e) => {
 
   window.addEventListener("mousemove", onMove, { passive: true });
 
-  // Reset when leaving window
   window.addEventListener("mouseleave", () => {
     last = null;
   });
 })();
-
-
 
 // ========== PROJECTS CAROUSEL ==========
 function initProjectsCarousel() {
@@ -249,7 +240,6 @@ function initProjectsCarousel() {
   let i = 0;
   let timer = null;
   
-  // Исправленные строки - теперь берём данные напрямую из viewport
   const interval = +(viewport.dataset.interval || 5000);
   const autoplay = viewport.dataset.autoplay !== "false";
   const reduce =
@@ -307,13 +297,11 @@ function initProjectsCarousel() {
   });
 }
 
-// Инициализируем при загрузке DOM
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initProjectsCarousel);
 } else {
   initProjectsCarousel();
 }
-
 
 /* ===== REVEAL (IntersectionObserver) ===== */
 (() => {
@@ -355,4 +343,35 @@ if (document.readyState === "loading") {
   });
 
   show(0);
+})();
+
+/* ===== PHOTO MODAL ===== */
+(() => {
+  const modal = document.getElementById("photoModal");
+  const img = modal?.querySelector(".photoModal__img");
+  const backdrop = modal?.querySelector(".photoModal__backdrop");
+  
+  if (!modal || !img || !backdrop) return;
+
+  const gallery = document.querySelectorAll(".photoGrid__grid img");
+  
+  gallery.forEach(photo => {
+    photo.addEventListener("click", () => {
+      img.src = photo.src;
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  const closeModal = () => {
+    modal.classList.remove("is-open");
+    document.body.style.overflow = "";
+  };
+
+  backdrop?.addEventListener("click", closeModal);
+  img?.addEventListener("click", closeModal);
+  
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 })();

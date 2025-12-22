@@ -12,10 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-
     <link rel="stylesheet" href="./assets/css/style.css" />
-
     <link rel="stylesheet" href="./assets/css/scroll-to-top-sprite-styles.css">
+
+    <style>
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,7 +58,12 @@
     <aside class="sheet" hidden data-sheet>
         <div class="sheet__panel">
             <div class="sheet__head">
-                <div class="sheet__title">Меню</div>
+                <div class="sheet__title">
+                     <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
+                <span class="logo-text">SB.BY</span>
+            </a>
+                </div>
                 <button class="sheet__close" type="button" aria-label="Закрыть" data-close>
                     ✕
                 </button>
@@ -132,7 +145,6 @@
                         а доверие, выработанное годами тренировок.
                     </p>
 
-
                 </div>
             </div>
         </section>
@@ -191,12 +203,12 @@
 
             <div class="photoGrid__content container">
                 <div class="photoGrid__grid" data-reveal>
-                    <img src="./assets/img/galery/01.JPG" alt="" />
-                    <img src="./assets/img/galery/02.JPG" alt="" />
-                    <img src="./assets/img/galery/03.JPG" alt="" />
-                    <img src="./assets/img/galery/05.JPG" alt="" />
-                    <img src="./assets/img/galery/04.JPG" alt="" />
-                    <img src="./assets/img/galery/06.JPG" alt="" />
+                    <img src="./assets/img/galery/01.JPG" alt="Галерея 1" />
+                    <img src="./assets/img/galery/02.JPG" alt="Галерея 2" />
+                    <img src="./assets/img/galery/03.JPG" alt="Галерея 3" />
+                    <img src="./assets/img/galery/05.JPG" alt="Галерея 4" />
+                    <img src="./assets/img/galery/04.JPG" alt="Галерея 5" />
+                    <img src="./assets/img/galery/06.JPG" alt="Галерея 6" />
                 </div>
             </div>
         </section>
@@ -204,7 +216,7 @@
         <!-- Модалка -->
         <div class="photoModal" id="photoModal">
             <div class="photoModal__backdrop"></div>
-            <img class="photoModal__img" src="" alt="">
+            <img class="photoModal__img" src="" alt="Увеличенное изображение">
         </div>
 
 
@@ -244,11 +256,10 @@
         <!-- FULL-WIDTH VIDEO STRIP -->
         <section id="videoBlock" class="strip">
             <div class="strip__media">
-                <img src="./assets/img/jokey-1.JPG" alt="">
+                <img src="./assets/img/jokey-1.JPG" alt="Всадник на лошади">
             </div>
         </section>
 
-        <!-- STORY (article-like) -->
         <!-- STORY (article-like) -->
         <section id="story" class="section section--video">
             <div class="sectionVideo__bg">
@@ -307,19 +318,19 @@
                 <div class="cards" data-reveal>
                     <article class="card">
                         <div class="card__img">
-                            <img src="./assets/img/sec-1.JPG" alt="Раздел" loading="lazy" />
+                            <img src="./assets/img/sec-1.JPG" alt="Раздел 1" loading="lazy" />
                         </div>
                     </article>
 
                     <article class="card">
                         <div class="card__img">
-                            <img src="./assets/img/sec-2.JPG" alt="Раздел" loading="lazy" />
+                            <img src="./assets/img/sec-2.JPG" alt="Раздел 2" loading="lazy" />
                         </div>
                     </article>
 
                     <article class="card">
                         <div class="card__img">
-                            <img src="./assets/img/sec-3.JPG" alt="Раздел" loading="lazy" />
+                            <img src="./assets/img/sec-3.JPG" alt="Раздел 3" loading="lazy" />
                         </div>
                     </article>
                 </div>
@@ -341,7 +352,7 @@
                                 <img src="./assets/img/last-gal/01.JPG" alt="Слайд 1" loading="lazy" />
                                 <img src="./assets/img/last-gal/02.JPG" alt="Слайд 2" loading="lazy" />
                                 <img src="./assets/img/last-gal/03.JPG" alt="Слайд 3" loading="lazy" />
-                                <img src="./assets/img/last-gal/04.JPG" alt="Слайд 3" loading="lazy" />
+                                <img src="./assets/img/last-gal/04.JPG" alt="Слайд 4" loading="lazy" />
                             </div>
                         </div>
                     </div>
@@ -456,19 +467,12 @@
                         <div class="audioItem">
                             <div class="audioItem__title">🎧 Практика доверия и спокойствия</div>
                             <audio controls preload="none">
-                                <source src="/audio/voice-track-2.mp3" type="audio/mpeg" />
+                                <source src="./assets/audio/1 дек. в 11-34.m4a" type="audio/mpeg" />
                                 Ваш браузер не поддерживает аудио.
                             </audio>
                         </div>
                     </div>
                 </div>
-
-                <!-- Заголовок + кнопка -->
-                <div class="postsTop" data-reveal>
-
-                </div>
-
-                <!-- Основная сетка постов -->
 
             </div>
         </section>
@@ -549,7 +553,6 @@
     <script src="./assets/js/scroll-to-top-sprite.js"></script>
     <script>
         window.addEventListener("load", () => {
-            // Отложенная загрузка analytics на 3+ сек
             setTimeout(loadYandexMetrika, 3000);
             setTimeout(loadGTM, 4000);
         });
