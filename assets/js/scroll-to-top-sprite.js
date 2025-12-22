@@ -74,3 +74,38 @@ modal.addEventListener("click", () => {
   modalImg.src = "";
   document.body.style.overflow = "";
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const audios = Array.from(document.querySelectorAll("audio"));
+
+    audios.forEach((audio) => {
+        audio.addEventListener("play", () => {
+            audios.forEach((other) => {
+                if (other !== audio && !other.paused) {
+                    other.pause();
+                }
+            });
+
+            // пример хука под аналитику
+            console.log("audio_play", {
+                src: audio.currentSrc,
+                time: audio.currentTime,
+            });
+        });
+
+        audio.addEventListener("pause", () => {
+            console.log("audio_pause", {
+                src: audio.currentSrc,
+                time: audio.currentTime,
+            });
+        });
+
+        audio.addEventListener("ended", () => {
+            console.log("audio_ended", {
+                src: audio.currentSrc,
+                duration: audio.duration,
+            });
+        });
+    });
+});

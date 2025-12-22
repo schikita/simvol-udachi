@@ -229,3 +229,130 @@ form?.addEventListener("submit", (e) => {
 })();
 
 
+
+// ========== PROJECTS CAROUSEL ==========
+function initProjectsCarousel() {
+  const viewport = document.querySelector(".projects-viewport");
+  if (!viewport) return;
+
+  const stage = viewport.querySelector(".projects-stage");
+  if (!stage) return;
+
+  const cards = Array.from(stage.querySelectorAll(".project-card"));
+  if (!cards.length) return;
+
+  const dotsWrap = viewport.querySelector(".pr-dots");
+  const prevBtn = viewport.querySelector(".prev");
+  const nextBtn = viewport.querySelector(".next");
+  if (!dotsWrap) return;
+
+  let i = 0;
+  let timer = null;
+  
+  // Исправленные строки - теперь берём данные напрямую из viewport
+  const interval = +(viewport.dataset.interval || 5000);
+  const autoplay = viewport.dataset.autoplay !== "false";
+  const reduce =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  dotsWrap.innerHTML = cards.map(() => "<i></i>").join("");
+  const dots = Array.from(dotsWrap.children);
+
+  const show = (idx) => {
+    i = (idx + cards.length) % cards.length;
+    cards.forEach((c, k) => c.classList.toggle("is-active", k === i));
+    dots.forEach((d, k) => d.classList.toggle("is-on", k === i));
+  };
+
+  const next = () => show(i + 1);
+  const prev = () => show(i - 1);
+
+  const stop = () => {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  };
+
+  const play = () => {
+    if (reduce || !autoplay) return;
+    stop();
+    timer = setInterval(next, interval);
+  };
+
+  show(0);
+  play();
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      next();
+      play();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prev();
+      play();
+    });
+  }
+
+  dotsWrap.addEventListener("click", (e) => {
+    const idx = dots.indexOf(e.target);
+    if (idx > -1) {
+      show(idx);
+      play();
+    }
+  });
+}
+
+// Инициализируем при загрузке DOM
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initProjectsCarousel);
+} else {
+  initProjectsCarousel();
+}
+
+
+/* ===== REVEAL (IntersectionObserver) ===== */
+(() => {
+  const items = document.querySelectorAll("[data-reveal]");
+  if (!items.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-revealed");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  items.forEach(el => io.observe(el));
+})();
+
+/* ===== QUOTE SLIDER ===== */
+(() => {
+  const slider = document.querySelector(".js-quote-slider");
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll(".bigQuote__slide"));
+  const dots = Array.from(slider.querySelectorAll(".js-quote-dots span"));
+
+  if (slides.length !== dots.length) return;
+
+  let current = 0;
+
+  const show = (index) => {
+    current = index;
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === current));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === current));
+  };
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => show(i));
+  });
+
+  show(0);
+})();
