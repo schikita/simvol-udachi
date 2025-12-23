@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/scroll-to-top-sprite-styles.css">
+    <link rel="stylesheet" href="./assets/css/preloader.css">
 
     <style>
         html, body {
@@ -27,6 +28,29 @@
 </head>
 
 <body>
+    <!-- ===== PRELOADER ===== -->
+    <div class="particles" id="particles"></div>
+
+    <div class="preloader">
+        <div class="animation-container">
+            <div class="frame active" style="background-image: url('./assets/img/frame-1.png');"></div>
+            <div class="frame" style="background-image: url('./assets/img/frame-2.png');"></div>
+            <div class="frame" style="background-image: url('./assets/img/frame-3.png');"></div>
+            <div class="frame" style="background-image: url('./assets/img/frame-4.png');"></div>
+            <div class="frame" style="background-image: url('./assets/img/frame-5.png');"></div>
+            <div class="frame" style="background-image: url('./assets/img/frame-6.png');"></div>
+        </div>
+        
+        <div class="text-container">
+            <div class="title">ЖИВОЙ РЕПОРТАЖ</div>
+            <div class="loading-text">Загрузка<span id="dots">.</span></div>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
     <!-- Hoofprints overlay -->
     <div class="hoof-layer" aria-hidden="true" data-hoof-layer></div>
 
@@ -551,6 +575,7 @@
 
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/scroll-to-top-sprite.js"></script>
+    <script src="./assets/js/preloader.js"></script>
     <script>
         window.addEventListener("load", () => {
             setTimeout(loadYandexMetrika, 3000);

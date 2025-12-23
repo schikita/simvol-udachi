@@ -375,3 +375,110 @@ if (document.readyState === "loading") {
     if (e.key === "Escape") closeModal();
   });
 })();
+
+// ===== PRELOADER ANIMATION =====
+
+(function initPreloader() {
+    // Анимированные точки загрузки
+    function initDotsAnimation() {
+        const dotsElement = document.getElementById('dots');
+        if (!dotsElement) return;
+
+        let dotCount = 1;
+        setInterval(() => {
+            dotCount = (dotCount % 3) + 1;
+            dotsElement.textContent = '.'.repeat(dotCount);
+        }, 500);
+    }
+
+    // Анимация кадров
+    function initFrameAnimation() {
+        const frames = document.querySelectorAll('.frame');
+        if (frames.length === 0) return;
+
+        let currentFrame = 0;
+        const totalFrames = frames.length;
+        const fps = 12; // Кадров в секунду
+
+        function animateFrames() {
+            frames.forEach((frame) => {
+                frame.classList.remove('active');
+            });
+
+            frames[currentFrame].classList.add('active');
+            currentFrame = (currentFrame + 1) % totalFrames;
+        }
+
+        // Первый кадр сразу
+        animateFrames();
+
+        // Остальные кадры по интервалу
+        setInterval(animateFrames, 1000 / fps);
+    }
+
+    // Создание партиклей на фоне
+    function createParticles() {
+        const container = document.getElementById('particles');
+        if (!container) return;
+
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            const size = Math.random() * 2 + 1;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.background = ['#10b981', '#0ea5e9', '#ffffff'][Math.floor(Math.random() * 3)];
+            particle.style.borderRadius = '50%';
+            particle.style.opacity = Math.random() * 0.5 + 0.2;
+
+            const duration = Math.random() * 10 + 15;
+            const offset = Math.random() * 200 - 100;
+            particle.style.animation = `floatParticle ${duration}s linear infinite`;
+            particle.style.setProperty('--offset', offset + 'px');
+
+            container.appendChild(particle);
+        }
+    }
+
+    // Скрытие прелоадера после загрузки
+    function hidePreloader() {
+        const preloader = document.querySelector('.preloader');
+        if (!preloader) return;
+
+        // Скрываем с анимацией
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        preloader.style.pointerEvents = 'none';
+
+        // После анимации можно удалить из DOM (опционально)
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 600);
+    }
+
+    // Инициализация
+    function init() {
+        initDotsAnimation();
+        initFrameAnimation();
+        createParticles();
+
+        // Скрыть прелоадер через 2.5 секунды или когда загрузится страница (смотря что первым)
+        const hideTimer = setTimeout(hidePreloader, 2500);
+        
+        if (document.readyState === 'loading') {
+            window.addEventListener('load', () => {
+                clearTimeout(hideTimer);
+                hidePreloader();
+            });
+        }
+    }
+
+    // Запустить инициализацию
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
