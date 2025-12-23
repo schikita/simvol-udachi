@@ -824,6 +824,19 @@ a {
 }
 
 /* Posts */
+.section--lightm {
+  height: 90vh;
+  background:
+    linear-gradient(
+      #ffffff5e,
+      #ffffffbb
+    ),
+  url('../img/voice-bg.JPG');
+  background-repeat: no-repeat;
+  background-size: cover ;
+}
+
+
 .postsTop {
   display: flex;
   align-items: center;
@@ -1127,6 +1140,63 @@ a {
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
 }
+
+
+/* SECTION WITH VIDEO */
+.section--video {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: #000; /* fallback */
+}
+
+/* Video container */
+.video-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Video itself */
+.video-bg__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.9) contrast(1.05);
+}
+
+/* Dark overlay */
+.video-bg__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.55)
+        );
+}
+
+/* Content above video */
+.section--video .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Muted text on dark background */
+.section--video .muted {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Stats styling on dark bg (если нужно усилить контраст) */
+.section--video .stat__num {
+    color: #fff;
+}
+
 
 /* ===== Video Background Section ===== */
 .videoSection {

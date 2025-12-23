@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="./assets/css/preloader.css">
 
     <style>
-        html, body {
+        html,
+        body {
             width: 100%;
             max-width: 100%;
             margin: 0;
@@ -40,7 +41,7 @@
             <div class="frame" style="background-image: url('./assets/img/frame-5.png');"></div>
             <div class="frame" style="background-image: url('./assets/img/frame-6.png');"></div>
         </div>
-        
+
         <div class="text-container">
             <div class="title">ЖИВОЙ РЕПОРТАЖ</div>
             <div class="loading-text">Загрузка<span id="dots">.</span></div>
@@ -83,10 +84,10 @@
         <div class="sheet__panel">
             <div class="sheet__head">
                 <div class="sheet__title">
-                     <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
-                <span class="logo-text">SB.BY</span>
-            </a>
+                    <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
+                        <span class="logo-text">SB.BY</span>
+                    </a>
                 </div>
                 <button class="sheet__close" type="button" aria-label="Закрыть" data-close>
                     ✕
@@ -245,7 +246,17 @@
 
 
         <!-- BIG HEADING + STATS (like sample) -->
-        <section class="section section--light">
+        <!-- BIG HEADING + STATS with VIDEO BACKGROUND -->
+        <section class="section section--video">
+            <!-- Video background -->
+            <div class="video-bg" aria-hidden="true">
+                <video class="video-bg__video" autoplay muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/video-n.mp4" type="video/mp4" />
+                </video>
+                <div class="video-bg__overlay"></div>
+            </div>
+
+            <!-- Content -->
             <div class="container grid grid--stats">
                 <div class="content" data-reveal>
                     <h2 class="h2 h2--xl">
@@ -255,9 +266,9 @@
                     </h2>
 
                     <p class="p muted">
-                        Подготовка спортивной лошади — дело далеко не одного года. Нужно приучить к голосовым командам,
-                        выработать
-                        правильные движения и главное — построить доверие.
+                        Подготовка спортивной лошади — дело далеко не одного года.
+                        Нужно приучить к голосовым командам, выработать правильные движения
+                        и главное — построить доверие.
                     </p>
                 </div>
 
@@ -265,17 +276,22 @@
                     <div class="stat">
                         <div class="stat__num" data-count="180">0</div>
                         <div class="stat__title">Тренировок в цикле</div>
-                        <div class="stat__desc muted">Режим, повтор, корректировка, восстановление</div>
+                        <div class="stat__desc muted">
+                            Режим, повтор, корректировка, восстановление
+                        </div>
                     </div>
 
                     <div class="stat">
                         <div class="stat__num" data-count="100">0</div>
                         <div class="stat__title">Процентов доверия</div>
-                        <div class="stat__desc muted">Без доверия не бывает стабильной техники</div>
+                        <div class="stat__desc muted">
+                            Без доверия не бывает стабильной техники
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- FULL-WIDTH VIDEO STRIP -->
         <section id="videoBlock" class="strip">
@@ -447,7 +463,7 @@
 
                     <div class="bigQuote__line"></div>
 
-                    <div class="bigQuote__author">                       
+                    <div class="bigQuote__author">
 
                         <div>
                             <div class="bigQuote__name">Евгений Белоусов</div>
@@ -468,7 +484,7 @@
 
 
         <!-- POSTS -->
-        <section id="posts" class="section section--light">
+        <section id="posts" class="section section--lightm">
             <div class="container">
 
                 <!-- Вводный текст + аудио -->
