@@ -78,42 +78,60 @@ sheet?.addEventListener("click", (e) => {
 });
 sheetLinks.forEach((a) => a.addEventListener("click", closeSheet));
 
+
 /* ---------- events slider ---------- */
 const track = $("[data-slider-track]");
 const btnPrev = $("[data-prev]");
 const btnNext = $("[data-next]");
 
-const titles = [
-  "Полуфинальный выезд",
-  "Контрольная тренировка",
-  "Боёвое поле: старт сезона",
-];
+const titles = [];
+
 const descs = [
-  "«Боёвое поле» — место, где лошадь и наездник перестают быть «двумя», становясь одной системой.",
-  "Ритм, сбор, внимание к мелочи. В тренировке закладывается спокойствие зачета.",
-  "После сигнала исчезают эмоции. Остается техника и доверие.",
+  "В конюшне стоят лошади, бережно укрытые попонами вроде пледов. Трижды в день – овес с сеном. А еще душ с шампунем и даже солярий – чтобы расслабились мышцы после тренировок.",
+  "Конюх Наталья Михолапова вычищает денники и устилает пол чистыми опилками. Наталья Ивановна уже более десяти лет заботится о лошадях. Признается, что это была любовь с первого взгляда и притом взаимная:",  
+];
+
+const texts = [
+  `
+    <p>
+      Когда видишь, как лошадь до седьмого пота работает на манеже, понимаешь, что такой уход – вовсе не роскошь. Это те же спортсмены: они должны быть в идеальной физической форме.
+    </p>    
+  `,
+  `
+    <p>
+      – Когда я утром захожу в конюшню, чтобы покормить, они меня уже по шагам узнают и встречают дружеским ржанием. Мои любимцы – Ватикан и Викинг -- они здесь уже давно, как и я. Питание у них трехразовое: сено, овес, морковь, витамины, мюсли.
+    </p>
+  
+  `
 ];
 
 const titleEl = $("[data-slider-title]");
 const descEl = $("[data-slider-desc]");
+const textEl = $("[data-slider-text]");
+
 let idx = 0;
+const slidesCount = texts.length;
 
 function applySlide() {
   if (!track) return;
-  const offset = idx * 100;
-  track.style.transform = `translateX(-${offset}%)`;
-  if (titleEl) titleEl.textContent = titles[idx] || titles[0];
-  if (descEl) descEl.textContent = descs[idx] || descs[0];
+
+  track.style.transform = `translateX(-${idx * 100}%)`;
+
+  if (titleEl) titleEl.textContent = titles[idx];
+  if (descEl) descEl.textContent = descs[idx];
+  if (textEl) textEl.innerHTML = texts[idx];
 }
 
 btnPrev?.addEventListener("click", () => {
-  idx = (idx - 1 + 3) % 3;
+  idx = (idx - 1 + slidesCount) % slidesCount;
   applySlide();
 });
+
 btnNext?.addEventListener("click", () => {
-  idx = (idx + 1) % 3;
+  idx = (idx + 1) % slidesCount;
   applySlide();
 });
+
 applySlide();
 
 /* ---------- demo form ---------- */
@@ -239,7 +257,7 @@ function initProjectsCarousel() {
 
   let i = 0;
   let timer = null;
-  
+
   const interval = +(viewport.dataset.interval || 5000);
   const autoplay = viewport.dataset.autoplay !== "false";
   const reduce =
@@ -308,16 +326,19 @@ if (document.readyState === "loading") {
   const items = document.querySelectorAll("[data-reveal]");
   if (!items.length) return;
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-revealed");
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
 
-  items.forEach(el => io.observe(el));
+  items.forEach((el) => io.observe(el));
 })();
 
 /* ===== QUOTE SLIDER ===== */
@@ -350,12 +371,12 @@ if (document.readyState === "loading") {
   const modal = document.getElementById("photoModal");
   const img = modal?.querySelector(".photoModal__img");
   const backdrop = modal?.querySelector(".photoModal__backdrop");
-  
+
   if (!modal || !img || !backdrop) return;
 
   const gallery = document.querySelectorAll(".photoGrid__grid img");
-  
-  gallery.forEach(photo => {
+
+  gallery.forEach((photo) => {
     photo.addEventListener("click", () => {
       img.src = photo.src;
       modal.classList.add("is-open");
@@ -370,7 +391,7 @@ if (document.readyState === "loading") {
 
   backdrop?.addEventListener("click", closeModal);
   img?.addEventListener("click", closeModal);
-  
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
@@ -379,106 +400,108 @@ if (document.readyState === "loading") {
 // ===== PRELOADER ANIMATION =====
 
 (function initPreloader() {
-    // Анимированные точки загрузки
-    function initDotsAnimation() {
-        const dotsElement = document.getElementById('dots');
-        if (!dotsElement) return;
+  // Анимированные точки загрузки
+  function initDotsAnimation() {
+    const dotsElement = document.getElementById("dots");
+    if (!dotsElement) return;
 
-        let dotCount = 1;
-        setInterval(() => {
-            dotCount = (dotCount % 3) + 1;
-            dotsElement.textContent = '.'.repeat(dotCount);
-        }, 500);
+    let dotCount = 1;
+    setInterval(() => {
+      dotCount = (dotCount % 3) + 1;
+      dotsElement.textContent = ".".repeat(dotCount);
+    }, 500);
+  }
+
+  // Анимация кадров
+  function initFrameAnimation() {
+    const frames = document.querySelectorAll(".frame");
+    if (frames.length === 0) return;
+
+    let currentFrame = 0;
+    const totalFrames = frames.length;
+    const fps = 12; // Кадров в секунду
+
+    function animateFrames() {
+      frames.forEach((frame) => {
+        frame.classList.remove("active");
+      });
+
+      frames[currentFrame].classList.add("active");
+      currentFrame = (currentFrame + 1) % totalFrames;
     }
 
-    // Анимация кадров
-    function initFrameAnimation() {
-        const frames = document.querySelectorAll('.frame');
-        if (frames.length === 0) return;
+    // Первый кадр сразу
+    animateFrames();
 
-        let currentFrame = 0;
-        const totalFrames = frames.length;
-        const fps = 12; // Кадров в секунду
+    // Остальные кадры по интервалу
+    setInterval(animateFrames, 1000 / fps);
+  }
 
-        function animateFrames() {
-            frames.forEach((frame) => {
-                frame.classList.remove('active');
-            });
+  // Создание партиклей на фоне
+  function createParticles() {
+    const container = document.getElementById("particles");
+    if (!container) return;
 
-            frames[currentFrame].classList.add('active');
-            currentFrame = (currentFrame + 1) % totalFrames;
-        }
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement("div");
+      particle.className = "particle";
+      particle.style.left = Math.random() * 100 + "%";
+      particle.style.top = Math.random() * 100 + "%";
+      const size = Math.random() * 2 + 1;
+      particle.style.width = size + "px";
+      particle.style.height = size + "px";
+      particle.style.background = ["#10b981", "#0ea5e9", "#ffffff"][
+        Math.floor(Math.random() * 3)
+      ];
+      particle.style.borderRadius = "50%";
+      particle.style.opacity = Math.random() * 0.5 + 0.2;
 
-        // Первый кадр сразу
-        animateFrames();
+      const duration = Math.random() * 10 + 15;
+      const offset = Math.random() * 200 - 100;
+      particle.style.animation = `floatParticle ${duration}s linear infinite`;
+      particle.style.setProperty("--offset", offset + "px");
 
-        // Остальные кадры по интервалу
-        setInterval(animateFrames, 1000 / fps);
+      container.appendChild(particle);
     }
+  }
 
-    // Создание партиклей на фоне
-    function createParticles() {
-        const container = document.getElementById('particles');
-        if (!container) return;
+  // Скрытие прелоадера после загрузки
+  function hidePreloader() {
+    const preloader = document.querySelector(".preloader");
+    if (!preloader) return;
 
-        for (let i = 0; i < 30; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            const size = Math.random() * 2 + 1;
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-            particle.style.background = ['#10b981', '#0ea5e9', '#ffffff'][Math.floor(Math.random() * 3)];
-            particle.style.borderRadius = '50%';
-            particle.style.opacity = Math.random() * 0.5 + 0.2;
+    // Скрываем с анимацией
+    preloader.style.opacity = "0";
+    preloader.style.visibility = "hidden";
+    preloader.style.pointerEvents = "none";
 
-            const duration = Math.random() * 10 + 15;
-            const offset = Math.random() * 200 - 100;
-            particle.style.animation = `floatParticle ${duration}s linear infinite`;
-            particle.style.setProperty('--offset', offset + 'px');
+    // После анимации можно удалить из DOM (опционально)
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 600);
+  }
 
-            container.appendChild(particle);
-        }
+  // Инициализация
+  function init() {
+    initDotsAnimation();
+    initFrameAnimation();
+    createParticles();
+
+    // Скрыть прелоадер через 2.5 секунды или когда загрузится страница (смотря что первым)
+    const hideTimer = setTimeout(hidePreloader, 2500);
+
+    if (document.readyState === "loading") {
+      window.addEventListener("load", () => {
+        clearTimeout(hideTimer);
+        hidePreloader();
+      });
     }
+  }
 
-    // Скрытие прелоадера после загрузки
-    function hidePreloader() {
-        const preloader = document.querySelector('.preloader');
-        if (!preloader) return;
-
-        // Скрываем с анимацией
-        preloader.style.opacity = '0';
-        preloader.style.visibility = 'hidden';
-        preloader.style.pointerEvents = 'none';
-
-        // После анимации можно удалить из DOM (опционально)
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 600);
-    }
-
-    // Инициализация
-    function init() {
-        initDotsAnimation();
-        initFrameAnimation();
-        createParticles();
-
-        // Скрыть прелоадер через 2.5 секунды или когда загрузится страница (смотря что первым)
-        const hideTimer = setTimeout(hidePreloader, 2500);
-        
-        if (document.readyState === 'loading') {
-            window.addEventListener('load', () => {
-                clearTimeout(hideTimer);
-                hidePreloader();
-            });
-        }
-    }
-
-    // Запустить инициализацию
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
+  // Запустить инициализацию
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();

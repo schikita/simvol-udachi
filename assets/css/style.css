@@ -141,8 +141,9 @@ a {
   margin: 0 0 14px;
 }
 
-.h2--xl {
+h2.h2--xl {
   font-size: clamp(36px, 4.2vw, 74px);
+  color: #000000;
 }
 
 .h2--onDark {
@@ -155,6 +156,13 @@ a {
   margin: 0 0 14px;
 }
 
+.pl {
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 0 0 14px;
+  color: #f1c40f;
+}
+
 .muted {
   color: #000000;
 }
@@ -162,6 +170,16 @@ a {
 .mutedOnDark {
   color: var(--mutedDark);
 }
+
+.events__story {
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
+.events__story p {
+  margin-bottom: 14px;
+}
+
 
 .grid {
   display: grid;
@@ -530,7 +548,7 @@ a {
 }
 
 .content {
-  background: #f7f4ef98;
+  background: #f7f4efd0;
   padding: 20px;
   border-radius: 10px;
 }
@@ -576,7 +594,122 @@ a {
 
 .stat__desc {
   margin-top: 8px;
+  font-size: 20px;
+  color: #ffd000;
 }
+
+.prRech {
+  color: #ffd000;
+}
+
+.prRech1 {
+  color: #5f0808;
+  font-weight: bold;
+}
+
+.live-hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  /* Фоновое изображение */
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+              url('../img/horse.jpg') center/cover no-repeat fixed;
+  background-attachment: fixed;
+}
+
+.live-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(184, 134, 11, 0.2));
+  pointer-events: none;
+}
+
+.live-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.live-hero__text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #f5f5f5;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1s ease-out;
+}
+
+.author-link {
+  font-weight: 600;
+  color: #d4af37;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+.author-link:hover {
+  color: #ffd700;
+  border-bottom-color: #d4af37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Анимация */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .live-hero {
+    min-height: 400px;
+    background-attachment: scroll;
+  }
+  
+  .live-hero__content {
+    padding: 40px 25px;
+  }
+  
+  .live-hero__text {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .live-hero {
+    min-height: 350px;
+  }
+  
+  .live-hero__content {
+    padding: 30px 20px;
+  }
+  
+  .live-hero__text {
+    font-size: 15px;
+  }
+}
+
+
 
 /* Strip */
 .strip {
@@ -1188,9 +1321,7 @@ a {
 }
 
 /* Muted text on dark background */
-.section--video .muted {
-    color: rgba(255, 255, 255, 0.7);
-}
+
 
 /* Stats styling on dark bg (если нужно усилить контраст) */
 .section--video .stat__num {
@@ -1353,14 +1484,17 @@ a {
   z-index: 1;
 }
 
-.section--video .h2,
-.section--video .p {
+.section--video,
+.section--video {
   color: rgba(255, 255, 255, 0.95);
 }
 
-.section--video .muted {
-  color: rgba(255, 255, 255, 0.7);
+
+
+.muteds {
+  color: #000;
 }
+
 
 .section--video .article {
   background: rgba(0, 0, 0, 0.35);
@@ -1671,7 +1805,7 @@ audio {
 .section--darkd {
   position: relative;
   height: 80vh;
-  background: url("../img/ceo.JPG") no-repeat top center / cover;
+  background: url("../img/horse-bg.JPG") no-repeat top center / cover;
   overflow: hidden;
   width: 100%;
 }
@@ -2157,4 +2291,65 @@ audio {
         width: 200px;
         margin-top: 12px;
     }
+}
+
+
+/* ---------- editorial section ---------- */
+.section--editorial {
+    background: url('../img/usl.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.editorial {
+    max-width: 860px;
+}
+
+/* Head note */
+.editorial__label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 12px;
+}
+
+.editorial__title {
+    font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+    color: #e0e408;
+    text-shadow: 2px 2px 2px #000000;
+    line-height: 1.25;
+}
+
+/* Body */
+.editorial__body {
+  padding: 20px;
+  background-color: #ccccccc9;
+    margin-top: 36px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #222;
+}
+
+/* Lead paragraph */
+.editorial__lead {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 28px;
+}
+
+/* Regular paragraphs */
+.editorial__body p {
+    margin-bottom: 20px;
+}
+
+/* Quote */
+.editorial__quote {
+    margin: 40px 0;
+    padding-left: 24px;
+    border-left: 3px solid #111;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #333;
 }
