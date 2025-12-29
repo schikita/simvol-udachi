@@ -422,7 +422,7 @@ h2.h2--xl {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("../img/hero.jpg");
+  background-image: url("../img/hero1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -435,9 +435,9 @@ h2.h2--xl {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.45) 55%,
-    rgba(0, 0, 0, 0.75) 100%
+    rgba(0, 0, 0, 0.048) 0%,
+    rgba(0, 0, 0, 0.055) 55%,
+    rgba(0, 0, 0, 0.048) 100%
   );
 }
 
@@ -446,9 +446,9 @@ h2.h2--xl {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.45) 55%,
-    rgba(0, 0, 0, 0.75) 100%
+    rgba(0, 0, 0, 0.068) 0%,
+    rgba(0, 0, 0, 0.062) 55%,
+    rgba(0, 0, 0, 0.075) 100%
   );
   z-index: 1;
 }
@@ -471,6 +471,7 @@ h2.h2--xl {
   text-align: center;
   z-index: 2;
   width: 100%;
+  padding-top: 300px;
   padding-left: 24px;
   padding-right: 24px;
 }
@@ -481,8 +482,8 @@ h2.h2--xl {
   inset: -32px -24px;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.253) 0%,
-    rgba(0, 0, 0, 0.274) 100%
+    rgba(0, 0, 0, 0.048) 0%,
+    rgba(0, 0, 0, 0.048) 100%
   );
   border-radius: 28px;
   filter: blur(6px);
