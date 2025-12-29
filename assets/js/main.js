@@ -78,7 +78,7 @@ sheet?.addEventListener("click", (e) => {
 });
 sheetLinks.forEach((a) => a.addEventListener("click", closeSheet));
 
-
+/* ---------- events slider ---------- */
 /* ---------- events slider ---------- */
 const track = $("[data-slider-track]");
 const btnPrev = $("[data-prev]");
